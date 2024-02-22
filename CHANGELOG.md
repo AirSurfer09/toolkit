@@ -1,5 +1,11 @@
 # @airsurfer09/toolkit
 
+## 0.0.3
+
+### Patch Changes
+
+- npm ignore added for cleanup
+
 ## 0.0.2
 
 ### Patch Changes
