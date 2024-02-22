@@ -1,19 +1,23 @@
 {
-  "name": "toolkit",
-  "version": "1.0.0",
+  "name": "@airsurfer09/toolkit",
+  "version": "0.0.1",
   "description": "",
-  "main": "index.js",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
   "scripts": {
     "build": "tsup src/index.ts --format cjs,esm --dts",
     "lint": "tsc",
     "dev": "vitest",
     "test": "vitest run",
-    "ci": "pnpm run lint && pnpm run test && pnpm run build"
+    "ci": "pnpm run lint && pnpm run test && pnpm run build",
+    "release": "pnpm run ci && changeset publish"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
+    "@changesets/cli": "^2.27.1",
     "@types/node": "^20.11.19",
     "tsup": "^8.0.2",
     "typescript": "^5.3.3",
