@@ -1,5 +1,11 @@
 # @airsurfer09/toolkit
 
+## 0.1.1
+
+### Patch Changes
+
+- dependency for protobuf
+
 ## 0.1.0
 
 ### Minor Changes
