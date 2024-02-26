@@ -1,5 +1,11 @@
 # @airsurfer09/toolkit
 
+## 0.1.0
+
+### Minor Changes
+
+- convai-web-sdk
+
 ## 0.0.3
 
 ### Patch Changes
