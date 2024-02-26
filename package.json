@@ -22,6 +22,7 @@
     "google-protobuf": "^3.21.2"
   },
   "dependencies": {
+    "@improbable-eng/grpc-web": "^0.15.0",
     "google-protobuf": "^3.21.2"
   },
   "devDependencies": {
