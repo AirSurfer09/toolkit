@@ -1,3 +1,1 @@
-export const hello = () => {
-  console.log('Hello World');
-};
+export { default as ConvaiClient } from './ConvaiClient';
