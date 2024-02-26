@@ -4,6 +4,12 @@
 
 ### Patch Changes
 
+- package changes
+
+## 0.1.1
+
+### Patch Changes
+
 - dependency for protobuf
 
 ## 0.1.0
