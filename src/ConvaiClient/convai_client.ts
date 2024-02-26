@@ -3,7 +3,7 @@ import {
   GetResponseResponse,
 } from '../../Proto/service/service_pb';
 import { ConvaiGRPCClient } from './convai_grpc_client';
-import { AudioPlayer } from './audio_player_new';
+import { AudioPlayer } from './audio_player';
 import { AudioRecorder } from './audio_recorder';
 export interface ConvaiClientParams {
   apiKey: string;

@@ -5,12 +5,12 @@
  * @template T The type of values stored in the queue.
  */
 class AsyncBlockingQueue<T> {
-  private resolvers: Array<((value: T) => void)> = [];
+  private resolvers: Array<(value: T) => void> = [];
   private promises: Promise<T>[] = [];
 
   // This function asynchronously adds a new promise to the queue
   private async _add(): Promise<void> {
-    const promise = new Promise<T>(resolve => {
+    const promise = new Promise<T>((resolve) => {
       this.resolvers.push(resolve);
     });
 
@@ -23,22 +23,30 @@ class AsyncBlockingQueue<T> {
   // Enqueue a value into the queue
   public enqueue(value: T): void {
     // If there are no pending resolvers, add a new promise
-    if (!this.resolvers.length) {
+    if (this.resolvers.length) {
+      const resolver = this.resolvers.shift();
+      if (resolver) {
+        resolver(value);
+      }
+    } else {
       this._add();
     }
-    // Resolve the first resolver with the provided value
-    this.resolvers.shift()(value);
   }
 
   // Dequeue a value from the queue
   public async dequeue(): Promise<T> {
     // If there are no pending promises, add a new promise
     if (!this.promises.length) {
-      this._add();
+      await this._add();
     }
+
     // Wait for the first promise to be resolved and return its value
-    const result = await Promise.all([this.promises.shift()]);
-    return result[0];
+    const promise = this.promises.shift();
+    if (!promise) {
+      throw new Error('No pending promises');
+    }
+    const result = await promise;
+    return result;
   }
 
   // Check if the queue is empty
