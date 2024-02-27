@@ -1,1 +1,1 @@
-export { default as ConvaiClient } from './ConvaiClient';
+console.log('Hello World');
